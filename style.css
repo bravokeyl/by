@@ -2939,10 +2939,60 @@ div.wpcf7-response-output {
 .sales-content a {
   color: #fff;
 }
-.section-sales .sales__heading strong {
-  font-weight: 800;
-}
 
+/* Section: Career
+------------------------------*/
+.section-career {
+  color: #fff;
+  background-image: url("assets/images/career-bg.jpg");
+  background-position: top left;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  text-align: center;
+}
+.section-career h2 {
+  color: #fff;
+  text-align: center;
+}
+.career-content {
+  color: #fff;
+  font-size: 16px;
+  line-height: 30px;
+}
+.section-career a.btn {
+  font-size: 14px;
+  background: #13B5EA;
+  border-color: transparent;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  border-radius: 30px;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+.section-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #3b3d40;
+  background: #3b3d40;
+  opacity: .5;
+  z-index: 11;
+}
+.section-sales .container,
+.section-career .container {
+  z-index: 12;
+}
 /* Section: Gallery
 ------------------------------*/
 .gallery-grid .g-item {

@@ -22,7 +22,7 @@ get_header(); ?>
 			if ( ! has_action( 'sumerian_frontpage_section_parts' ) ) {
 
 				$sections = apply_filters( 'sumerian_frontpage_sections_order', array(
-                    'about', 'features', 'services', 'sales', 'gallery', 'counter', 'team',  'news', 'contact'
+                    'about', 'features', 'services', 'sales', 'gallery', 'career', 'team', 'contact'
                 ) );
 
 				foreach ( $sections as $section ){
