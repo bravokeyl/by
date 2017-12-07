@@ -1714,92 +1714,93 @@ function sumerian_customize_register( $wp_customize ) {
 			// END For Hero layout ------------------------
 
 	/*------------------------------------------------------------------------*/
-	/*  Section: Video Popup
+	/*  Section: Sales
 	/*------------------------------------------------------------------------*/
-	$wp_customize->add_panel( 'sumerian_videolightbox' ,
+	$wp_customize->add_panel( 'sumerian_sales' ,
 		array(
 			'priority'        => 180,
-			'title'           => esc_html__( 'Section: Video Lightbox', 'sumerian' ),
+			'title'           => esc_html__( 'Section: Sales', 'sumerian' ),
 			'description'     => '',
 			'active_callback' => 'sumerian_showon_frontpage'
 		)
 	);
 
-    $wp_customize->add_section( 'sumerian_videolightbox_settings' ,
+    $wp_customize->add_section( 'sumerian_sales_settings' ,
         array(
             'priority'    => 3,
             'title'       => esc_html__( 'Section Settings', 'sumerian' ),
             'description' => '',
-            'panel'       => 'sumerian_videolightbox',
+            'panel'       => 'sumerian_sales',
         )
     );
 
     // Show Content
-    $wp_customize->add_setting( 'sumerian_videolightbox_disable',
+    $wp_customize->add_setting( 'sumerian_sales_disable',
         array(
             'sanitize_callback' => 'sumerian_sanitize_checkbox',
             'default'           => '',
         )
     );
-    $wp_customize->add_control( 'sumerian_videolightbox_disable',
+    $wp_customize->add_control( 'sumerian_sales_disable',
         array(
             'type'        => 'checkbox',
             'label'       => esc_html__('Hide this section?', 'sumerian'),
-            'section'     => 'sumerian_videolightbox_settings',
+            'section'     => 'sumerian_sales_settings',
             'description' => esc_html__('Check this box to hide this section.', 'sumerian'),
         )
     );
 
     // Section ID
-    $wp_customize->add_setting( 'sumerian_videolightbox_id',
+    $wp_customize->add_setting( 'sumerian_sales_id',
         array(
             'sanitize_callback' => 'sumerian_sanitize_text',
-            'default'           => 'videolightbox',
+            'default'           => 'sales',
         )
     );
-    $wp_customize->add_control( 'sumerian_videolightbox_id',
+    $wp_customize->add_control( 'sumerian_sales_id',
         array(
             'label' 		=> esc_html__('Section ID:', 'sumerian'),
-            'section' 		=> 'sumerian_videolightbox_settings',
+            'section' 		=> 'sumerian_sales_settings',
             'description'   => esc_html__('The section id, we will use this for link anchor.', 'sumerian' )
         )
     );
 
     // Title
-    $wp_customize->add_setting( 'sumerian_videolightbox_title',
+    $wp_customize->add_setting( 'sumerian_sales_title',
         array(
             'sanitize_callback' => 'sumerian_sanitize_text',
             'default'           => '',
         )
     );
 
-    $wp_customize->add_control( new sumerian_Editor_Custom_Control(
-        $wp_customize,
-        'sumerian_videolightbox_title',
+    $wp_customize->add_control(  'sumerian_sales_title',
         array(
             'label'     	=>  esc_html__('Section heading', 'sumerian'),
-            'section' 		=> 'sumerian_videolightbox_settings',
+            'section' 		=> 'sumerian_sales_settings',
+            'description'   => '',
+        )
+    );
+
+		// Content
+
+    $wp_customize->add_setting( 'sumerian_sales_desc',
+        array(
+            'sanitize_callback' => 'sumerian_sanitize_text',
+            'default'           => '',
+        )
+    );
+		$wp_customize->add_control( new sumerian_Editor_Custom_Control(
+        $wp_customize,
+        'sumerian_sales_desc',
+        array(
+            'label'     	=>  esc_html__('Section Content', 'sumerian'),
+            'section' 		=> 'sumerian_sales_settings',
             'description'   => '',
         )
     ));
 
-    // Video URL
-    $wp_customize->add_setting( 'sumerian_videolightbox_url',
-        array(
-            'sanitize_callback' => 'esc_url_raw',
-            'default'           => '',
-        )
-    );
-    $wp_customize->add_control( 'sumerian_videolightbox_url',
-        array(
-            'label' 		=> esc_html__('Video url', 'sumerian'),
-            'section' 		=> 'sumerian_videolightbox_settings',
-            'description'   =>  esc_html__('Paste Youtube or Vimeo url here', 'sumerian'),
-        )
-    );
-
     // Parallax image
-    $wp_customize->add_setting( 'sumerian_videolightbox_image',
+    $wp_customize->add_setting( 'sumerian_sales_image',
         array(
             'sanitize_callback' => 'esc_url_raw',
             'default'           => '',
@@ -1807,10 +1808,10 @@ function sumerian_customize_register( $wp_customize ) {
     );
     $wp_customize->add_control( new WP_Customize_Image_Control(
         $wp_customize,
-        'sumerian_videolightbox_image',
+        'sumerian_sales_image',
         array(
             'label' 		=> esc_html__('Background image', 'sumerian'),
-            'section' 		=> 'sumerian_videolightbox_settings',
+            'section' 		=> 'sumerian_sales_settings',
         )
     ));
 

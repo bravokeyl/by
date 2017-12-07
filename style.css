@@ -1,6 +1,6 @@
 /*
 Theme Name: Sumerian
-Theme URI: https://bravokeyl.com/
+Theme URI: https://mu-bit.com/
 Author: bravokeyl
 Author URI: https://bravokeyl.com/
 Description: Custom theme based
@@ -2031,7 +2031,7 @@ section > .customize-partial-edit-shortcut button {
 }
 
 .section-meta {
-  background-color: #f8f9f9;
+  background-color: #fafafa;
 }
 
 .onepage-section {
@@ -2124,8 +2124,8 @@ section > .customize-partial-edit-shortcut button {
 }
 
 .section-desc {
-  font-size: 20px;
-  font-size: 1.25rem;
+  font-size: 16px;
+  font-size: 1rem;
   margin-top: 40px;
   margin-top: 2.5rem;
 }
@@ -2492,12 +2492,13 @@ section > .customize-partial-edit-shortcut button {
 ------------------------------*/
 .section-services .service-item {
   background: #FFFFFF;
-  padding: 30px;
+  padding: 40px 10px;
   margin-bottom: 30px;
   position: relative;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
-  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+  -moz-box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.15);
+  -ms-box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.15);
+  margin-top: -10px;
   transition: all 100ms ease-out 0s;
 }
 @media screen and (max-width: 720px) {
@@ -2516,10 +2517,8 @@ section > .customize-partial-edit-shortcut button {
 }
 .section-services .service-item .service-image {
   float: left;
-  margin-right: 30px;
 }
 .section-services .service-item .service-image img {
-  max-width: 120px;
   height: auto;
 }
 .section-services .service-item .service-image i {
@@ -2922,47 +2921,26 @@ div.wpcf7-response-output {
   margin: 20px 0px;
 }
 
-/* Section: Videolightbox
+/* Section: sales
 ------------------------------*/
-.section-videolightbox {
+.section-sales {
+  color: #fff;
+  background-image: url("assets/images/sales-bg.jpg");
+  background-position: top left;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
   text-align: center;
 }
-.section-videolightbox .videolightbox__icon {
-  margin-bottom: 40px;
-  margin-bottom: 2.5rem;
-}
-.section-videolightbox .videolightbox__heading {
-  text-transform: uppercase;
-  font-size: 38px;
-  font-size: 2.375rem;
-  letter-spacing: 0px;
-  font-weight: 500;
-}
-.section-videolightbox .videolightbox__heading strong {
-  font-weight: 800;
-}
-.section-videolightbox .video_icon {
-  background: rgba(0, 0, 0, 0.2) none repeat scroll 0 0;
-  border: 4px solid #fff;
-  border-radius: 100px;
-  height: 50px;
-  line-height: 1;
-  padding: 10px;
-  width: 50px;
-  display: inline-block;
-}
-.section-videolightbox .video_icon i {
+.section-sales h2 {
   color: #fff;
-  font-size: 20px;
-  margin-left: 6px;
-  margin-top: 1px;
-  line-height: 1;
+  text-align: center;
 }
-.section-videolightbox .video_icon:hover {
-  background: #FFFFFF;
+.sales-content a {
+  color: #fff;
 }
-.section-videolightbox .video_icon:hover i {
-  color: #000;
+.section-sales .sales__heading strong {
+  font-weight: 800;
 }
 
 /* Section: Gallery

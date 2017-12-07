@@ -59,7 +59,7 @@ if ( ! empty( $page_ids ) ) {
                             if ( $settings['icon_type'] == 'image' && $settings['image'] ){
                                 $url = sumerian_get_media_url( $settings['image'] );
                                 if ( $url ) {
-                                    $media = '<div class="service-image icon-image"><img src="'.esc_url( $url ).'" alt=""></div>';
+                                    $media = '<div class="service-image col-md-5 col-sm-12 icon-image"><img src="'.esc_url( $url ).'" alt=""></div>';
                                 }
                             } else if ( $settings['icon'] ) {
                                 $settings['icon'] = trim( $settings['icon'] );
@@ -102,7 +102,7 @@ if ( ! empty( $page_ids ) ) {
                                     <?php if ( $media != '' ) {
                                         echo $media;
                                     } ?>
-                                    <div class="service-content">
+                                    <div class="service-content col-md-7 col-sm-12">
                                         <h4 class="service-title"><?php echo get_the_title( $post ); ?></h4>
                                         <?php
                                         echo apply_filters( 'the_excerpt', get_the_excerpt( $post ) );
