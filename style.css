@@ -2100,7 +2100,6 @@ section > .customize-partial-edit-shortcut button {
   font-weight: 800;
   position: relative;
   margin-bottom: 0px;
-  text-transform: uppercase;
 }
 @media screen and (min-width: 940px) {
   .section-title-area .section-title {
@@ -2422,14 +2421,27 @@ section > .customize-partial-edit-shortcut button {
 }
 .section-about {
   background: #fafafa;
+  border-bottom: 1px solid #f2f2f2;
 }
 /* Section: Features
 ------------------------------*/
+.section-features {
+  font-size: 16px;
+}
+.section-features .section-title-area {
+  max-width: 786px;
+  margin: 0 auto;
+}
+.section-features .section-desc {
+  font-size: 16px;
+  line-height: 30px
+}
 .icon-background-default {
   color: #03c4eb;
 }
 
 .feature-item {
+  margin-bottom: 20px;
   text-align: center;
 }
 .feature-item .feature-icon {

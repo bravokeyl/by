@@ -2477,8 +2477,8 @@ function sumerian_customize_register( $wp_customize ) {
                 'section'       => 'sumerian_features_content',
                 'live_title_id' => 'title', // apply for unput text and textarea only
                 'title_format'  => esc_html__('[live_title]', 'sumerian'), // [live_title]
-                'max_item'      => 4, // Maximum item can add
-                'limited_msg' 	=> wp_kses_post( __( 'Upgrade to <a target="_blank" href="https://www.famethemes.com/plugins/sumerian-plus/?utm_source=theme_customizer&utm_medium=text_link&utm_campaign=sumerian_customizer#get-started">sumerian Plus</a> to be able to add more items and unlock other premium features!', 'sumerian' ) ),
+                'max_item'      => 20, // Maximum item can add
+                'limited_msg' 	=> wp_kses_post( __( 'Hola!', 'sumerian' ) ),
                 'fields'    => array(
                     'title'  => array(
                         'title' => esc_html__('Title', 'sumerian'),

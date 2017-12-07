@@ -12,7 +12,7 @@ if ( !$disable && !empty( $data ) ) {
 ?>
 <?php if ( ! sumerian_is_selective_refresh() ){ ?>
 <section id="<?php if ( $id != '') { echo esc_attr( $id ); } ?>" <?php do_action('sumerian_section_atts', 'features'); ?>
-         class="<?php echo esc_attr(apply_filters('sumerian_section_class', 'section-features section-padding section-meta onepage-section', 'features')); ?>">
+         class="<?php echo esc_attr(apply_filters('sumerian_section_class', 'section-features section-padding onepage-section', 'features')); ?>">
 <?php } ?>
     <?php do_action('sumerian_section_before_inner', 'features'); ?>
     <div class="<?php echo esc_attr( apply_filters( 'sumerian_section_container_class', 'container', 'features' ) ); ?>">
