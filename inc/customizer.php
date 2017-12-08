@@ -3506,53 +3506,23 @@ function sumerian_customize_register( $wp_customize ) {
 			'panel'       => 'sumerian_contact',
 		)
 	);
-		// Contact form 7 guide.
-		$wp_customize->add_setting( 'sumerian_contact_cf7_guide',
-			array(
-				'sanitize_callback' => 'sumerian_sanitize_text'
-			)
-		);
-		$wp_customize->add_control( new sumerian_Misc_Control( $wp_customize, 'sumerian_contact_cf7_guide',
-			array(
-				'section'     => 'sumerian_contact_content',
-				'type'        => 'custom_message',
-				'description' => wp_kses_post( 'In order to display contact form please install <a target="_blank" href="https://wordpress.org/plugins/contact-form-7/">Contact Form 7</a> plugin and then copy the contact form shortcode and paste it here, the shortcode will be like this <code>[contact-form-7 id="xxxx" title="Example Contact Form"]</code>', 'sumerian' )
-			)
-		));
 
-		// Contact Form 7 Shortcode
-		$wp_customize->add_setting( 'sumerian_contact_cf7',
+
+		// Contact Text
+		$wp_customize->add_setting( 'sumerian_contact_left_title',
 			array(
-				'sanitize_callback' => 'sumerian_sanitize_text',
-				'default'           => '',
+				'sanitize_callback' => 'sanitize_text_field',
+				'default'           => esc_html__('CORPORATE HEADQUARTER', 'sumerian'),
 			)
 		);
-		$wp_customize->add_control( 'sumerian_contact_cf7',
+		$wp_customize->add_control( 'sumerian_contact_left_title',
 			array(
-				'label'     	=> esc_html__('Contact Form 7 Shortcode.', 'sumerian'),
+				'label'     => esc_html__('Left title', 'sumerian'),
 				'section' 		=> 'sumerian_contact_content',
 				'description'   => '',
 			)
 		);
-
-		// Show CF7
-		$wp_customize->add_setting( 'sumerian_contact_cf7_disable',
-			array(
-				'sanitize_callback' => 'sumerian_sanitize_checkbox',
-				'default'           => '',
-			)
-		);
-		$wp_customize->add_control( 'sumerian_contact_cf7_disable',
-			array(
-				'type'        => 'checkbox',
-				'label'       => esc_html__('Hide contact form completely.', 'sumerian'),
-				'section'     => 'sumerian_contact_content',
-				'description' => esc_html__('Check this box to hide contact form.', 'sumerian'),
-			)
-		);
-
-		// Contact Text
-		$wp_customize->add_setting( 'sumerian_contact_text',
+		$wp_customize->add_setting( 'sumerian_contact_left_text',
 			array(
 				'sanitize_callback' => 'sumerian_sanitize_text',
 				'default'           => '',
@@ -3560,7 +3530,7 @@ function sumerian_customize_register( $wp_customize ) {
 		);
 		$wp_customize->add_control( new sumerian_Editor_Custom_Control(
 			$wp_customize,
-			'sumerian_contact_text',
+			'sumerian_contact_left_text',
 			array(
 				'label'     	=> esc_html__('Contact Text', 'sumerian'),
 				'section' 		=> 'sumerian_contact_content',
@@ -3577,80 +3547,35 @@ function sumerian_customize_register( $wp_customize ) {
 			)
 		));
 
-		// Address Box
-		$wp_customize->add_setting( 'sumerian_contact_address_title',
+		$wp_customize->add_setting( 'sumerian_contact_right_title',
 			array(
 				'sanitize_callback' => 'sanitize_text_field',
-				'default'           => '',
+				'default'           => esc_html__('GLOBAL DEVELOPMENT CENTRE', 'sumerian'),
 			)
 		);
-		$wp_customize->add_control( 'sumerian_contact_address_title',
+		$wp_customize->add_control( 'sumerian_contact_right_title',
 			array(
-				'label'     	=> esc_html__('Contact Box Title', 'sumerian'),
+				'label'     => esc_html__('Right Title', 'sumerian'),
 				'section' 		=> 'sumerian_contact_content',
 				'description'   => '',
 			)
 		);
 
-		// Contact Text
-		$wp_customize->add_setting( 'sumerian_contact_address',
+		$wp_customize->add_setting( 'sumerian_contact_right_text',
 			array(
 				'sanitize_callback' => 'sumerian_sanitize_text',
 				'default'           => '',
 			)
 		);
-		$wp_customize->add_control( 'sumerian_contact_address',
+		$wp_customize->add_control( new sumerian_Editor_Custom_Control(
+			$wp_customize,
+			'sumerian_contact_right_text',
 			array(
-				'label'     => esc_html__('Address', 'sumerian'),
+				'label'     	=> esc_html__('Contact Right Text', 'sumerian'),
 				'section' 		=> 'sumerian_contact_content',
 				'description'   => '',
 			)
-		);
-
-		// Contact Phone
-		$wp_customize->add_setting( 'sumerian_contact_phone',
-			array(
-				'sanitize_callback' => 'sumerian_sanitize_text',
-				'default'           => '',
-			)
-		);
-		$wp_customize->add_control( 'sumerian_contact_phone',
-			array(
-				'label'     	=> esc_html__('Phone', 'sumerian'),
-				'section' 		=> 'sumerian_contact_content',
-				'description'   => '',
-			)
-		);
-
-		// Contact Email
-		$wp_customize->add_setting( 'sumerian_contact_email',
-			array(
-				'sanitize_callback' => 'sanitize_text_field',
-				'default'           => '',
-			)
-		);
-		$wp_customize->add_control( 'sumerian_contact_email',
-			array(
-				'label'     	=> esc_html__('Email', 'sumerian'),
-				'section' 		=> 'sumerian_contact_content',
-				'description'   => '',
-			)
-		);
-
-		// Contact Fax
-		$wp_customize->add_setting( 'sumerian_contact_fax',
-			array(
-				'sanitize_callback' => 'sumerian_sanitize_text',
-				'default'           => '',
-			)
-		);
-		$wp_customize->add_control( 'sumerian_contact_fax',
-			array(
-				'label'     	=> esc_html__('Fax', 'sumerian'),
-				'section' 		=> 'sumerian_contact_content',
-				'description'   => '',
-			)
-		);
+		));
 
 		do_action( 'sumerian_customize_after_register', $wp_customize );
 

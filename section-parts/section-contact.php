@@ -3,20 +3,16 @@ $sumerian_contact_id            = get_theme_mod( 'sumerian_contact_id', esc_html
 $sumerian_contact_disable       = get_theme_mod( 'sumerian_contact_disable' ) == 1 ?  true : false;
 $sumerian_contact_title         = get_theme_mod( 'sumerian_contact_title', esc_html__('Get in touch', 'sumerian' ));
 $sumerian_contact_subtitle      = get_theme_mod( 'sumerian_contact_subtitle', esc_html__('Section subtitle', 'sumerian' ));
-$sumerian_contact_cf7           = get_theme_mod( 'sumerian_contact_cf7' );
-$sumerian_contact_cf7_disable   = get_theme_mod( 'sumerian_contact_cf7_disable' );
-$sumerian_contact_text          = get_theme_mod( 'sumerian_contact_text' );
-$sumerian_contact_address_title = get_theme_mod( 'sumerian_contact_address_title' );
-$sumerian_contact_address       = get_theme_mod( 'sumerian_contact_address' );
-$sumerian_contact_phone         = get_theme_mod( 'sumerian_contact_phone' );
-$sumerian_contact_email         = get_theme_mod( 'sumerian_contact_email' );
-$sumerian_contact_fax           = get_theme_mod( 'sumerian_contact_fax' );
+$sumerian_contact_left_title     = get_theme_mod( 'sumerian_contact_left_title' );
+$sumerian_contact_right_title     = get_theme_mod( 'sumerian_contact_right_title' );
+$sumerian_contact_left_text     = get_theme_mod( 'sumerian_contact_left_text', esc_html__('CORPORATE HEADQUARTER', 'sumerian') );
+$sumerian_contact_right_text     = get_theme_mod( 'sumerian_contact_right_text' );
 
 if ( sumerian_is_selective_refresh() ) {
     $sumerian_contact_disable = false;
 }
 
-if ( $sumerian_contact_cf7 || $sumerian_contact_text || $sumerian_contact_address_title || $sumerian_contact_phone || $sumerian_contact_email || $sumerian_contact_fax ) {
+if ( $sumerian_contact_left_text || $sumerian_contact_title ) {
     $desc = wp_kses_post( get_theme_mod( 'sumerian_contact_desc' ) );
     ?>
     <?php if (!$sumerian_contact_disable) : ?>
@@ -36,63 +32,33 @@ if ( $sumerian_contact_cf7 || $sumerian_contact_text || $sumerian_contact_addres
                 </div>
                 <?php } ?>
                 <div class="row">
-                    <?php if ($sumerian_contact_cf7_disable != '1') : ?>
-                        <?php if (isset($sumerian_contact_cf7) && $sumerian_contact_cf7 != '') { ?>
-                            <div class="contact-form col-sm-6 wow slideInUp">
-                                <?php echo do_shortcode(wp_kses_post($sumerian_contact_cf7)); ?>
-                            </div>
-                        <?php } else { ?>
-                            <div class="contact-form col-sm-6 wow slideInUp">
-                                <br>
-                                <small>
-                                    <i><?php printf(esc_html__('You can install %1$s plugin and go to Customizer &rarr; Section: Contact &rarr; Section Content to show a working contact form here.', 'sumerian'), '<a href="' . esc_url('https://wordpress.org/plugins/contact-form-7/', 'sumerian') . '" target="_blank">Contact Form 7</a>'); ?></i>
-                                </small>
-                            </div>
-                        <?php } ?>
-                    <?php endif; ?>
-
-                    <div class="col-sm-6 wow slideInUp">
-                        <br>
+                    <div class="col-sm-6  wow slideInUp">
+                      <div class="bk-contact-col">
                         <?php
-                        if ($sumerian_contact_text != '') {
-                            echo apply_filters( 'sumerian_the_content', wp_kses_post( $sumerian_contact_text ) );
+                        if($sumerian_contact_left_title != '') {
+                          echo "<h4>".esc_html($sumerian_contact_left_title)."</h4>";
                         }
+                        if ($sumerian_contact_left_text != '') { ?>
+                          <div class="bk-contact-col-text">
+                          <?php  echo apply_filters( 'sumerian_the_content', wp_kses_post( $sumerian_contact_left_text ) ); ?>
+                          </div>
+                      <?php  }
                         ?>
-                        <br><br>
-                        <div class="address-box">
-
-                            <h3><?php if ($sumerian_contact_address_title != '') echo wp_kses_post($sumerian_contact_address_title); ?></h3>
-
-                            <?php if ($sumerian_contact_address != ''): ?>
-                                <div class="address-contact">
-                                    <span class="fa-stack"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-map-marker fa-stack-1x fa-inverse"></i></span>
-
-                                    <div class="address-content"><?php echo wp_kses_post($sumerian_contact_address); ?></div>
-                                </div>
-                            <?php endif; ?>
-
-                            <?php if ($sumerian_contact_phone != ''): ?>
-                                <div class="address-contact">
-                                    <span class="fa-stack"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-phone fa-stack-1x fa-inverse"></i></span>
-                                    <div class="address-content"><?php echo wp_kses_post($sumerian_contact_phone); ?></div>
-                                </div>
-                            <?php endif; ?>
-
-                            <?php if ($sumerian_contact_email != ''): ?>
-                                <div class="address-contact">
-                                    <span class="fa-stack"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i></span>
-                                    <div class="address-content"><a href="mailto:<?php echo antispambot($sumerian_contact_email); ?>"><?php echo antispambot($sumerian_contact_email); ?></a></div>
-                                </div>
-                            <?php endif; ?>
-
-                            <?php if ($sumerian_contact_fax != ''): ?>
-                                <div class="address-contact">
-                                    <span class="fa-stack"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-fax fa-stack-1x fa-inverse"></i></span>
-
-                                    <div class="address-content"><?php echo wp_kses_post($sumerian_contact_fax); ?></div>
-                                </div>
-                            <?php endif; ?>
-                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 wow slideInUp">
+                      <div class="bk-contact-col">
+                        <?php
+                        if($sumerian_contact_right_title != '') {
+                          echo "<h4>".esc_html($sumerian_contact_right_title)."</h4>";
+                        }
+                        if ($sumerian_contact_right_text != '') {?>
+                          <div class="bk-contact-col-text">
+                          <?php  echo apply_filters( 'sumerian_the_content', wp_kses_post( $sumerian_contact_right_text ) ); ?>
+                          </div>
+                        <?php }
+                        ?>
+                      </div>
                     </div>
                 </div>
             </div>

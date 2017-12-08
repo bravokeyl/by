@@ -2520,6 +2520,7 @@ section > .customize-partial-edit-shortcut button {
 }
 .section-services .service-item .service-image img {
   height: auto;
+  max-height: 116px;
 }
 .section-services .service-item .service-image i {
   color: #03c4eb;
@@ -2920,7 +2921,33 @@ div.wpcf7-validation-errors {
 div.wpcf7-response-output {
   margin: 20px 0px;
 }
-
+.bk-contact-col {
+  color: #444;
+  text-align: center;
+  background: #fff;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+  padding: 40px 10px;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  margin-bottom: 1.5em;
+  -webkit-box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.15);
+  -ms-box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.15);
+  margin-top: -10px;
+  border-top: 10px solid #13B5EA;
+}
+.bk-contact-col-text {
+  font-size: 16px;
+  color: #919191;
+  padding-left: 20px;
+  padding-right: 20px;
+  line-height: 24px;
+}
 /* Section: sales
 ------------------------------*/
 .section-sales {
