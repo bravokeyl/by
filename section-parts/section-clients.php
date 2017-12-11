@@ -1,14 +1,14 @@
 <?php
-$id       = get_theme_mod( 'sumerian_gallery_id', esc_html__('gallery', 'sumerian') );
-$disable  = get_theme_mod( 'sumerian_gallery_disable', 1 ) ==  1 ? true : false;
-$title    = get_theme_mod( 'sumerian_gallery_title', esc_html__('Gallery', 'sumerian' ));
-$subtitle = get_theme_mod( 'sumerian_gallery_subtitle', esc_html__('Section subtitle', 'sumerian' ));
-$desc     = get_theme_mod( 'sumerian_gallery_desc' );
+$id       = get_theme_mod( 'sumerian_clients_id', esc_html__('gallery', 'sumerian') );
+$disable  = get_theme_mod( 'sumerian_clients_disable', 1 ) ==  1 ? true : false;
+$title    = get_theme_mod( 'sumerian_clients_title', esc_html__('Gallery', 'sumerian' ));
+$subtitle = get_theme_mod( 'sumerian_clients_subtitle', esc_html__('Section subtitle', 'sumerian' ));
+$desc     = get_theme_mod( 'sumerian_clients_desc' );
 
 if ( sumerian_is_selective_refresh() ) {
     $disable = false;
 }
-$layout = get_theme_mod( 'sumerian_gallery_layout', 'default' );
+$layout = get_theme_mod( 'sumerian_clients_layout', 'default' );
 
 ?>
 <?php if ( ! $disable ) { ?>
@@ -30,7 +30,7 @@ $layout = get_theme_mod( 'sumerian_gallery_layout', 'default' );
         <?php } ?>
         <div class="gallery-content">
             <?php
-            sumerian_gallery_generate();
+            sumerian_clients_generate();
             ?>
         </div>
         <?php
@@ -49,4 +49,3 @@ $layout = get_theme_mod( 'sumerian_gallery_layout', 'default' );
         </section>
     <?php } ?>
 <?php }
-

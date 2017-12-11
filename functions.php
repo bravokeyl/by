@@ -208,7 +208,7 @@ function sumerian_scripts() {
     );
 
     // Load gallery scripts
-    $galley_disable  = get_theme_mod( 'sumerian_gallery_disable' ) ==  1 ? true : false;
+    $galley_disable  = get_theme_mod( 'sumerian_clients_disable' ) ==  1 ? true : false;
     $is_shop = false;
     if ( function_exists( 'is_woocommerce' ) ) {
         if ( is_woocommerce() ) {
@@ -220,7 +220,7 @@ function sumerian_scripts() {
     if ( ! $is_shop ) {
         if ( ! $galley_disable || is_customize_preview()) {
             $sumerian_js_settings['gallery_enable'] = 1;
-            $display = get_theme_mod('sumerian_gallery_display', 'grid');
+            $display = get_theme_mod('sumerian_clients_display', 'grid');
             if (!is_customize_preview()) {
                 switch ($display) {
                     case 'masonry':

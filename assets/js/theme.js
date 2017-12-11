@@ -694,7 +694,7 @@ jQuery( document ).ready( function( $ ) {
     /**
      * Gallery
      */
-    function sumerian_gallery_init( $context ){
+    function sumerian_clients_init( $context ){
         // justified
         if ( $.fn.justifiedGallery ) {
             $( '.gallery-justified', $context).imagesLoaded( function(){
@@ -840,12 +840,12 @@ jQuery( document ).ready( function( $ ) {
         }
     }
 
-    sumerian_gallery_init( $( '.gallery-content' ) );
+    sumerian_clients_init( $( '.gallery-content' ) );
 
     if ( 'undefined' !== typeof wp && wp.customize && wp.customize.selectiveRefresh ) {
         wp.customize.selectiveRefresh.bind( 'partial-content-rendered', function( placement ) {
             if ( placement.partial.id == 'section-gallery' ) {
-                sumerian_gallery_init( placement.container.find( '.gallery-content' ) );
+                sumerian_clients_init( placement.container.find( '.gallery-content' ) );
 
                 // Trigger resize to make other sections work.
                 $( window ).resize();

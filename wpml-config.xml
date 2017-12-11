@@ -153,11 +153,11 @@
             <key name='sumerian_hero_mobile_img' />
             <key name='sumerian_hero_overlay_color' />
 
-            <key name='sumerian_gallery_title' />
-            <key name='sumerian_gallery_subtitle' />
-            <key name='sumerian_gallery_desc' />
-            <key name='sumerian_gallery_source_page' />
-            <key name='sumerian_gallery_desc' />
+            <key name='sumerian_clients_title' />
+            <key name='sumerian_clients_subtitle' />
+            <key name='sumerian_clients_desc' />
+            <key name='sumerian_clients_source_page' />
+            <key name='sumerian_clients_desc' />
 
         </key>
     </admin-texts>

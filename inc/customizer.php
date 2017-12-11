@@ -1817,89 +1817,89 @@ function sumerian_customize_register( $wp_customize ) {
 
 
 	/*------------------------------------------------------------------------*/
-	/*  Section: Gallery
+	/*  Section: Clients
     /*------------------------------------------------------------------------*/
-	$wp_customize->add_panel( 'sumerian_gallery' ,
+	$wp_customize->add_panel( 'sumerian_clients' ,
 		array(
 			'priority'        => 190,
-			'title'           => esc_html__( 'Section: Gallery', 'sumerian' ),
+			'title'           => esc_html__( 'Section: Clients', 'sumerian' ),
 			'description'     => '',
 			'active_callback' => 'sumerian_showon_frontpage'
 		)
 	);
 
-	$wp_customize->add_section( 'sumerian_gallery_settings' ,
+	$wp_customize->add_section( 'sumerian_clients_settings' ,
 		array(
 			'priority'    => 3,
 			'title'       => esc_html__( 'Section Settings', 'sumerian' ),
 			'description' => '',
-			'panel'       => 'sumerian_gallery',
+			'panel'       => 'sumerian_clients',
 		)
 	);
 
 	// Show Content
-	$wp_customize->add_setting( 'sumerian_gallery_disable',
+	$wp_customize->add_setting( 'sumerian_clients_disable',
 		array(
 			'sanitize_callback' => 'sumerian_sanitize_checkbox',
 			'default'           => 1,
 		)
 	);
-	$wp_customize->add_control( 'sumerian_gallery_disable',
+	$wp_customize->add_control( 'sumerian_clients_disable',
 		array(
 			'type'        => 'checkbox',
 			'label'       => esc_html__('Hide this section?', 'sumerian'),
-			'section'     => 'sumerian_gallery_settings',
+			'section'     => 'sumerian_clients_settings',
 			'description' => esc_html__('Check this box to hide this section.', 'sumerian'),
 		)
 	);
 
 	// Section ID
-	$wp_customize->add_setting( 'sumerian_gallery_id',
+	$wp_customize->add_setting( 'sumerian_clients_id',
 		array(
 			'sanitize_callback' => 'sumerian_sanitize_text',
-			'default'           => esc_html__('gallery', 'sumerian'),
+			'default'           => esc_html__('clients', 'sumerian'),
 		)
 	);
-	$wp_customize->add_control( 'sumerian_gallery_id',
+	$wp_customize->add_control( 'sumerian_clients_id',
 		array(
 			'label'     => esc_html__('Section ID:', 'sumerian'),
-			'section' 		=> 'sumerian_gallery_settings',
+			'section' 		=> 'sumerian_clients_settings',
 			'description'   => esc_html__( 'The section id, we will use this for link anchor.', 'sumerian' )
 		)
 	);
 
 	// Title
-	$wp_customize->add_setting( 'sumerian_gallery_title',
+	$wp_customize->add_setting( 'sumerian_clients_title',
 		array(
 			'sanitize_callback' => 'sanitize_text_field',
 			'default'           => esc_html__('Gallery', 'sumerian'),
 		)
 	);
-	$wp_customize->add_control( 'sumerian_gallery_title',
+	$wp_customize->add_control( 'sumerian_clients_title',
 		array(
 			'label'     => esc_html__('Section Title', 'sumerian'),
-			'section' 		=> 'sumerian_gallery_settings',
+			'section' 		=> 'sumerian_clients_settings',
 			'description'   => '',
 		)
 	);
 
 	// Sub Title
-	$wp_customize->add_setting( 'sumerian_gallery_subtitle',
+	$wp_customize->add_setting( 'sumerian_clients_subtitle',
 		array(
 			'sanitize_callback' => 'sanitize_text_field',
 			'default'           => esc_html__('Section subtitle', 'sumerian'),
 		)
 	);
-	$wp_customize->add_control( 'sumerian_gallery_subtitle',
+	$wp_customize->add_control( 'sumerian_clients_subtitle',
 		array(
 			'label'     => esc_html__('Section Subtitle', 'sumerian'),
-			'section' 		=> 'sumerian_gallery_settings',
+			'section' 		=> 'sumerian_clients_settings',
 			'description'   => '',
 		)
 	);
 
 	// Description
-	$wp_customize->add_setting( 'sumerian_gallery_desc',
+	$wp_customize->add_setting( 'sumerian_clients_desc',
 		array(
 			'sanitize_callback' => 'sumerian_sanitize_text',
 			'default'           => '',
@@ -1907,34 +1907,34 @@ function sumerian_customize_register( $wp_customize ) {
 	);
 	$wp_customize->add_control( new sumerian_Editor_Custom_Control(
 		$wp_customize,
-		'sumerian_gallery_desc',
+		'sumerian_clients_desc',
 		array(
 			'label' 		=> esc_html__('Section Description', 'sumerian'),
-			'section' 		=> 'sumerian_gallery_settings',
+			'section' 		=> 'sumerian_clients_settings',
 			'description'   => '',
 		)
 	));
 
-	$wp_customize->add_section( 'sumerian_gallery_content' ,
+	$wp_customize->add_section( 'sumerian_clients_content' ,
 		array(
 			'priority'    => 6,
 			'title'       => esc_html__( 'Section Content', 'sumerian' ),
 			'description' => '',
-			'panel'       => 'sumerian_gallery',
+			'panel'       => 'sumerian_clients',
 		)
 	);
-	// Gallery Source
-	$wp_customize->add_setting( 'sumerian_gallery_source',
+	// Clients Source
+	$wp_customize->add_setting( 'sumerian_clients_source',
 		array(
 			'sanitize_callback' => 'sanitize_text_field',
-			'validate_callback' => 'sumerian_gallery_source_validate',
+			'validate_callback' => 'sumerian_clients_source_validate',
 			'default'           => 'page',
 		)
 	);
-	$wp_customize->add_control( 'sumerian_gallery_source',
+	$wp_customize->add_control( 'sumerian_clients_source',
 		array(
 			'label'     	=> esc_html__('Select Gallery Source', 'sumerian'),
-			'section' 		=> 'sumerian_gallery_content',
+			'section' 		=> 'sumerian_clients_content',
 			'type'          => 'select',
 			'priority'      => 5,
 			'choices'       => array(
@@ -1947,16 +1947,16 @@ function sumerian_customize_register( $wp_customize ) {
 	);
 
 	// Source page settings
-	$wp_customize->add_setting( 'sumerian_gallery_source_page',
+	$wp_customize->add_setting( 'sumerian_clients_source_page',
 		array(
 			'sanitize_callback' => 'sumerian_sanitize_number',
 			'default'           => '',
 		)
 	);
-	$wp_customize->add_control( 'sumerian_gallery_source_page',
+	$wp_customize->add_control( 'sumerian_clients_source_page',
 		array(
-			'label'     	=> esc_html__('Select Gallery Page', 'sumerian'),
-			'section' 		=> 'sumerian_gallery_content',
+			'label'     	=> esc_html__('Select Clients Page', 'sumerian'),
+			'section' 		=> 'sumerian_clients_content',
 			'type'          => 'select',
 			'priority'      => 10,
 			'choices'       => $option_pages,
@@ -1965,17 +1965,17 @@ function sumerian_customize_register( $wp_customize ) {
 	);
 
 
-	// Gallery Layout
-	$wp_customize->add_setting( 'sumerian_gallery_layout',
+	// Clients Layout
+	$wp_customize->add_setting( 'sumerian_clients_layout',
 		array(
 			'sanitize_callback' => 'sanitize_text_field',
 			'default'           => 'default',
 		)
 	);
-	$wp_customize->add_control( 'sumerian_gallery_layout',
+	$wp_customize->add_control( 'sumerian_clients_layout',
 		array(
 			'label'     	=> esc_html__('Layout', 'sumerian'),
-			'section' 		=> 'sumerian_gallery_content',
+			'section' 		=> 'sumerian_clients_content',
 			'type'          => 'select',
 			'priority'      => 40,
 			'choices'       => array(
@@ -1986,16 +1986,16 @@ function sumerian_customize_register( $wp_customize ) {
 	);
 
 	// Gallery Display
-	$wp_customize->add_setting( 'sumerian_gallery_display',
+	$wp_customize->add_setting( 'sumerian_clients_display',
 		array(
 			'sanitize_callback' => 'sanitize_text_field',
 			'default'           => 'default',
 		)
 	);
-	$wp_customize->add_control( 'sumerian_gallery_display',
+	$wp_customize->add_control( 'sumerian_clients_display',
 		array(
 			'label'     	=> esc_html__('Display', 'sumerian'),
-			'section' 		=> 'sumerian_gallery_content',
+			'section' 		=> 'sumerian_clients_content',
 			'type'          => 'select',
 			'priority'      => 50,
 			'choices'       => array(
@@ -2018,7 +2018,7 @@ function sumerian_customize_register( $wp_customize ) {
 	$wp_customize->add_control( 'sumerian_g_spacing',
 		array(
 			'label'     	=> esc_html__('Item Spacing', 'sumerian'),
-			'section' 		=> 'sumerian_gallery_content',
+			'section' 		=> 'sumerian_clients_content',
 			'priority'      => 55,
 
 		)
@@ -2034,7 +2034,7 @@ function sumerian_customize_register( $wp_customize ) {
 	$wp_customize->add_control( 'sumerian_g_row_height',
 		array(
 			'label'     	=> esc_html__('Row Height', 'sumerian'),
-			'section' 		=> 'sumerian_gallery_content',
+			'section' 		=> 'sumerian_clients_content',
 			'priority'      => 57,
 
 		)
@@ -2050,7 +2050,7 @@ function sumerian_customize_register( $wp_customize ) {
 	$wp_customize->add_control( 'sumerian_g_col',
 		array(
 			'label'     	=> esc_html__('Layout columns', 'sumerian'),
-			'section' 		=> 'sumerian_gallery_content',
+			'section' 		=> 'sumerian_clients_content',
 			'priority'      => 60,
 			'type'          => 'select',
 			'choices'       => array(
@@ -2075,7 +2075,7 @@ function sumerian_customize_register( $wp_customize ) {
 	$wp_customize->add_control( 'sumerian_g_number',
 		array(
 			'label'     	=> esc_html__('Number items', 'sumerian'),
-			'section' 		=> 'sumerian_gallery_content',
+			'section' 		=> 'sumerian_clients_content',
 			'priority'      => 65,
 		)
 	);
@@ -2089,7 +2089,7 @@ function sumerian_customize_register( $wp_customize ) {
 	$wp_customize->add_control( 'sumerian_g_lightbox',
 		array(
 			'label'     	=> esc_html__('Enable Lightbox', 'sumerian'),
-			'section' 		=> 'sumerian_gallery_content',
+			'section' 		=> 'sumerian_clients_content',
 			'priority'      => 70,
 			'type'          => 'checkbox',
 		)
@@ -2105,7 +2105,7 @@ function sumerian_customize_register( $wp_customize ) {
     $wp_customize->add_control( 'sumerian_g_readmore_link',
         array(
             'label'     	=> esc_html__('Read More Link', 'sumerian'),
-            'section' 		=> 'sumerian_gallery_content',
+            'section' 		=> 'sumerian_clients_content',
             'priority'      => 90,
             'type'          => 'text',
         )
@@ -2120,7 +2120,7 @@ function sumerian_customize_register( $wp_customize ) {
     $wp_customize->add_control( 'sumerian_g_readmore_text',
         array(
             'label'     	=> esc_html__('Read More Text', 'sumerian'),
-            'section' 		=> 'sumerian_gallery_content',
+            'section' 		=> 'sumerian_clients_content',
             'priority'      => 100,
             'type'          => 'text',
         )
@@ -2854,549 +2854,6 @@ function sumerian_customize_register( $wp_customize ) {
                 ),
             )
         );
-
-	/*------------------------------------------------------------------------*/
-    /*  Section: Counter
-    /*------------------------------------------------------------------------*/
-	$wp_customize->add_panel( 'sumerian_counter' ,
-		array(
-			'priority'        => 210,
-			'title'           => esc_html__( 'Section: Counter', 'sumerian' ),
-			'description'     => '',
-			'active_callback' => 'sumerian_showon_frontpage'
-		)
-	);
-
-	$wp_customize->add_section( 'sumerian_counter_settings' ,
-		array(
-			'priority'    => 3,
-			'title'       => esc_html__( 'Section Settings', 'sumerian' ),
-			'description' => '',
-			'panel'       => 'sumerian_counter',
-		)
-	);
-		// Show Content
-		$wp_customize->add_setting( 'sumerian_counter_disable',
-			array(
-				'sanitize_callback' => 'sumerian_sanitize_checkbox',
-				'default'           => '',
-			)
-		);
-		$wp_customize->add_control( 'sumerian_counter_disable',
-			array(
-				'type'        => 'checkbox',
-				'label'       => esc_html__('Hide this section?', 'sumerian'),
-				'section'     => 'sumerian_counter_settings',
-				'description' => esc_html__('Check this box to hide this section.', 'sumerian'),
-			)
-		);
-
-		// Section ID
-		$wp_customize->add_setting( 'sumerian_counter_id',
-			array(
-				'sanitize_callback' => 'sumerian_sanitize_text',
-				'default'           => esc_html__('counter', 'sumerian'),
-			)
-		);
-		$wp_customize->add_control( 'sumerian_counter_id',
-			array(
-				'label'     	=> esc_html__('Section ID:', 'sumerian'),
-				'section' 		=> 'sumerian_counter_settings',
-				'description'   => esc_html__( 'The section id, we will use this for link anchor.', 'sumerian' )
-			)
-		);
-
-		// Title
-		$wp_customize->add_setting( 'sumerian_counter_title',
-			array(
-				'sanitize_callback' => 'sanitize_text_field',
-				'default'           => esc_html__('Our Numbers', 'sumerian'),
-			)
-		);
-		$wp_customize->add_control( 'sumerian_counter_title',
-			array(
-				'label'     	=> esc_html__('Section Title', 'sumerian'),
-				'section' 		=> 'sumerian_counter_settings',
-				'description'   => '',
-			)
-		);
-
-		// Sub Title
-		$wp_customize->add_setting( 'sumerian_counter_subtitle',
-			array(
-				'sanitize_callback' => 'sanitize_text_field',
-				'default'           => esc_html__('Section subtitle', 'sumerian'),
-			)
-		);
-		$wp_customize->add_control( 'sumerian_counter_subtitle',
-			array(
-				'label'     	=> esc_html__('Section Subtitle', 'sumerian'),
-				'section' 		=> 'sumerian_counter_settings',
-				'description'   => '',
-			)
-		);
-
-        // Description
-        $wp_customize->add_setting( 'sumerian_counter_desc',
-            array(
-                'sanitize_callback' => 'sumerian_sanitize_text',
-                'default'           => '',
-            )
-        );
-        $wp_customize->add_control( new sumerian_Editor_Custom_Control(
-            $wp_customize,
-            'sumerian_counter_desc',
-            array(
-                'label' 		=> esc_html__('Section Description', 'sumerian'),
-                'section' 		=> 'sumerian_counter_settings',
-                'description'   => '',
-            )
-        ));
-
-	$wp_customize->add_section( 'sumerian_counter_content' ,
-		array(
-			'priority'    => 6,
-			'title'       => esc_html__( 'Section Content', 'sumerian' ),
-			'description' => '',
-			'panel'       => 'sumerian_counter',
-		)
-	);
-
-	// Order & Styling
-	$wp_customize->add_setting(
-		'sumerian_counter_boxes',
-		array(
-			'sanitize_callback' => 'sumerian_sanitize_repeatable_data_field',
-			'transport' => 'refresh', // refresh or postMessage
-		) );
-
-
-		$wp_customize->add_control(
-			new sumerian_Customize_Repeatable_Control(
-				$wp_customize,
-				'sumerian_counter_boxes',
-				array(
-					'label'     	=> esc_html__('Counter content', 'sumerian'),
-					'description'   => '',
-					'section'       => 'sumerian_counter_content',
-					'live_title_id' => 'title', // apply for unput text and textarea only
-					'title_format'  => esc_html__('[live_title]', 'sumerian'), // [live_title]
-					'max_item'      => 4, // Maximum item can add
-                    'limited_msg' 	=> wp_kses_post( __('Upgrade to <a target="_blank" href="https://www.famethemes.com/plugins/sumerian-plus/?utm_source=theme_customizer&utm_medium=text_link&utm_campaign=sumerian_customizer#get-started">sumerian Plus</a> to be able to add more items and unlock other premium features!', 'sumerian' ) ),
-                    'fields'    => array(
-						'title' => array(
-							'title' => esc_html__('Title', 'sumerian'),
-							'type'  =>'text',
-							'desc'  => '',
-							'default' => esc_html__( 'Your counter label', 'sumerian' ),
-						),
-						'number' => array(
-							'title' => esc_html__('Number', 'sumerian'),
-							'type'  =>'text',
-							'default' => 99,
-						),
-						'unit_before'  => array(
-							'title' => esc_html__('Before number', 'sumerian'),
-							'type'  =>'text',
-							'default' => '',
-						),
-						'unit_after'  => array(
-							'title' => esc_html__('After number', 'sumerian'),
-							'type'  =>'text',
-							'default' => '',
-						),
-					),
-
-				)
-			)
-		);
-
-	/*------------------------------------------------------------------------*/
-    /*  Section: Team
-    /*------------------------------------------------------------------------*/
-    $wp_customize->add_panel( 'sumerian_team' ,
-		array(
-			'priority'        => 250,
-			'title'           => esc_html__( 'Section: Team', 'sumerian' ),
-			'description'     => '',
-			'active_callback' => 'sumerian_showon_frontpage'
-		)
-	);
-
-	$wp_customize->add_section( 'sumerian_team_settings' ,
-		array(
-			'priority'    => 3,
-			'title'       => esc_html__( 'Section Settings', 'sumerian' ),
-			'description' => '',
-			'panel'       => 'sumerian_team',
-		)
-	);
-
-		// Show Content
-		$wp_customize->add_setting( 'sumerian_team_disable',
-			array(
-				'sanitize_callback' => 'sumerian_sanitize_checkbox',
-				'default'           => '',
-			)
-		);
-		$wp_customize->add_control( 'sumerian_team_disable',
-			array(
-				'type'        => 'checkbox',
-				'label'       => esc_html__('Hide this section?', 'sumerian'),
-				'section'     => 'sumerian_team_settings',
-				'description' => esc_html__('Check this box to hide this section.', 'sumerian'),
-			)
-		);
-		// Section ID
-		$wp_customize->add_setting( 'sumerian_team_id',
-			array(
-				'sanitize_callback' => 'sumerian_sanitize_text',
-				'default'           => esc_html__('team', 'sumerian'),
-			)
-		);
-		$wp_customize->add_control( 'sumerian_team_id',
-			array(
-				'label'     	=> esc_html__('Section ID:', 'sumerian'),
-				'section' 		=> 'sumerian_team_settings',
-				'description'   => 'The section id, we will use this for link anchor.'
-			)
-		);
-
-		// Title
-		$wp_customize->add_setting( 'sumerian_team_title',
-			array(
-				'sanitize_callback' => 'sanitize_text_field',
-				'default'           => esc_html__('Our Team', 'sumerian'),
-			)
-		);
-		$wp_customize->add_control( 'sumerian_team_title',
-			array(
-				'label'    		=> esc_html__('Section Title', 'sumerian'),
-				'section' 		=> 'sumerian_team_settings',
-				'description'   => '',
-			)
-		);
-
-		// Sub Title
-		$wp_customize->add_setting( 'sumerian_team_subtitle',
-			array(
-				'sanitize_callback' => 'sanitize_text_field',
-				'default'           => esc_html__('Section subtitle', 'sumerian'),
-			)
-		);
-		$wp_customize->add_control( 'sumerian_team_subtitle',
-			array(
-				'label'     => esc_html__('Section Subtitle', 'sumerian'),
-				'section' 		=> 'sumerian_team_settings',
-				'description'   => '',
-			)
-		);
-
-        // Description
-        $wp_customize->add_setting( 'sumerian_team_desc',
-            array(
-                'sanitize_callback' => 'sumerian_sanitize_text',
-                'default'           => '',
-            )
-        );
-        $wp_customize->add_control( new sumerian_Editor_Custom_Control(
-            $wp_customize,
-            'sumerian_team_desc',
-            array(
-                'label' 		=> esc_html__('Section Description', 'sumerian'),
-                'section' 		=> 'sumerian_team_settings',
-                'description'   => '',
-            )
-        ));
-
-        // Team layout
-        $wp_customize->add_setting( 'sumerian_team_layout',
-            array(
-                'sanitize_callback' => 'sanitize_text_field',
-                'default'           => '3',
-            )
-        );
-
-        $wp_customize->add_control( 'sumerian_team_layout',
-            array(
-                'label' 		=> esc_html__('Team Layout Setting', 'sumerian'),
-                'section' 		=> 'sumerian_team_settings',
-                'description'   => '',
-                'type'          => 'select',
-                'choices'       => array(
-					'3' => esc_html__( '4 Columns', 'sumerian' ),
-					'4' => esc_html__( '3 Columns', 'sumerian' ),
-					'6' => esc_html__( '2 Columns', 'sumerian' ),
-                ),
-            )
-        );
-
-	$wp_customize->add_section( 'sumerian_team_content' ,
-		array(
-			'priority'    => 6,
-			'title'       => esc_html__( 'Section Content', 'sumerian' ),
-			'description' => '',
-			'panel'       => 'sumerian_team',
-		)
-	);
-
-		// Team member settings
-		$wp_customize->add_setting(
-			'sumerian_team_members',
-			array(
-				'sanitize_callback' => 'sumerian_sanitize_repeatable_data_field',
-				'transport' => 'refresh', // refresh or postMessage
-			) );
-
-
-		$wp_customize->add_control(
-			new sumerian_Customize_Repeatable_Control(
-				$wp_customize,
-				'sumerian_team_members',
-				array(
-					'label'     => esc_html__('Team members', 'sumerian'),
-					'description'   => '',
-					'section'       => 'sumerian_team_content',
-					//'live_title_id' => 'user_id', // apply for unput text and textarea only
-					'title_format'  => esc_html__( '[live_title]', 'sumerian'), // [live_title]
-					'max_item'      => 4, // Maximum item can add
-                    'limited_msg' 	=> wp_kses_post( __( 'Upgrade to <a target="_blank" href="https://www.famethemes.com/plugins/sumerian-plus/?utm_source=theme_customizer&utm_medium=text_link&utm_campaign=sumerian_customizer#get-started">sumerian Plus</a> to be able to add more items and unlock other premium features!', 'sumerian' ) ),
-                    'fields'    => array(
-						'user_id' => array(
-							'title' => esc_html__('User media', 'sumerian'),
-							'type'  =>'media',
-							'desc'  => '',
-						),
-                        'link' => array(
-                            'title' => esc_html__('Custom Link', 'sumerian'),
-                            'type'  =>'text',
-                            'desc'  => '',
-                        ),
-					),
-
-				)
-			)
-		);
-
-
-
-	/*------------------------------------------------------------------------*/
-    /*  Section: News
-    /*------------------------------------------------------------------------*/
-    $wp_customize->add_panel( 'sumerian_news' ,
-		array(
-			'priority'        => 260,
-			'title'           => esc_html__( 'Section: News', 'sumerian' ),
-			'description'     => '',
-			'active_callback' => 'sumerian_showon_frontpage'
-		)
-	);
-
-	$wp_customize->add_section( 'sumerian_news_settings' ,
-		array(
-			'priority'    => 3,
-			'title'       => esc_html__( 'Section Settings', 'sumerian' ),
-			'description' => '',
-			'panel'       => 'sumerian_news',
-		)
-	);
-
-		// Show Content
-		$wp_customize->add_setting( 'sumerian_news_disable',
-			array(
-				'sanitize_callback' => 'sumerian_sanitize_checkbox',
-				'default'           => '',
-			)
-		);
-		$wp_customize->add_control( 'sumerian_news_disable',
-			array(
-				'type'        => 'checkbox',
-				'label'       => esc_html__('Hide this section?', 'sumerian'),
-				'section'     => 'sumerian_news_settings',
-				'description' => esc_html__('Check this box to hide this section.', 'sumerian'),
-			)
-		);
-
-		// Section ID
-		$wp_customize->add_setting( 'sumerian_news_id',
-			array(
-				'sanitize_callback' => 'sumerian_sanitize_text',
-				'default'           => esc_html__('news', 'sumerian'),
-			)
-		);
-		$wp_customize->add_control( 'sumerian_news_id',
-			array(
-				'label'     => esc_html__('Section ID:', 'sumerian'),
-				'section' 		=> 'sumerian_news_settings',
-				'description'   => esc_html__( 'The section id, we will use this for link anchor.', 'sumerian' )
-			)
-		);
-
-		// Title
-		$wp_customize->add_setting( 'sumerian_news_title',
-			array(
-				'sanitize_callback' => 'sanitize_text_field',
-				'default'           => esc_html__('Latest News', 'sumerian'),
-			)
-		);
-		$wp_customize->add_control( 'sumerian_news_title',
-			array(
-				'label'     => esc_html__('Section Title', 'sumerian'),
-				'section' 		=> 'sumerian_news_settings',
-				'description'   => '',
-			)
-		);
-
-		// Sub Title
-		$wp_customize->add_setting( 'sumerian_news_subtitle',
-			array(
-				'sanitize_callback' => 'sanitize_text_field',
-				'default'           => esc_html__('Section subtitle', 'sumerian'),
-			)
-		);
-		$wp_customize->add_control( 'sumerian_news_subtitle',
-			array(
-				'label'     => esc_html__('Section Subtitle', 'sumerian'),
-				'section' 		=> 'sumerian_news_settings',
-				'description'   => '',
-			)
-		);
-
-        // Description
-        $wp_customize->add_setting( 'sumerian_news_desc',
-            array(
-                'sanitize_callback' => 'sumerian_sanitize_text',
-                'default'           => '',
-            )
-        );
-        $wp_customize->add_control( new sumerian_Editor_Custom_Control(
-            $wp_customize,
-            'sumerian_news_desc',
-            array(
-                'label' 		=> esc_html__('Section Description', 'sumerian'),
-                'section' 		=> 'sumerian_news_settings',
-                'description'   => '',
-            )
-        ));
-
-		// hr
-		$wp_customize->add_setting( 'sumerian_news_settings_hr',
-			array(
-				'sanitize_callback' => 'sumerian_sanitize_text',
-			)
-		);
-		$wp_customize->add_control( new sumerian_Misc_Control( $wp_customize, 'sumerian_news_settings_hr',
-			array(
-				'section'     => 'sumerian_news_settings',
-				'type'        => 'hr'
-			)
-		));
-
-		// Number of post to show.
-		$wp_customize->add_setting( 'sumerian_news_number',
-			array(
-				'sanitize_callback' => 'sumerian_sanitize_number',
-				'default'           => '3',
-			)
-		);
-		$wp_customize->add_control( 'sumerian_news_number',
-			array(
-				'label'     	=> esc_html__('Number of post to show', 'sumerian'),
-				'section' 		=> 'sumerian_news_settings',
-				'description'   => '',
-			)
-		);
-
-        $wp_customize->add_setting( 'sumerian_news_cat',
-            array(
-                'sanitize_callback' => 'sanitize_text_field',
-                'default'           => 0,
-            )
-        );
-
-        $wp_customize->add_control( new sumerian_Category_Control(
-            $wp_customize,
-            'sumerian_news_cat',
-            array(
-                'label' 		=> esc_html__('Category to show', 'sumerian'),
-                'section' 		=> 'sumerian_news_settings',
-                'description'   => '',
-            )
-        ));
-
-        $wp_customize->add_setting( 'sumerian_news_orderby',
-            array(
-                'sanitize_callback' => 'sumerian_sanitize_select',
-                'default'           => 0,
-            )
-        );
-
-        $wp_customize->add_control(
-            'sumerian_news_orderby',
-            array(
-                'label' 		=> esc_html__('Order By', 'sumerian'),
-                'section' 		=> 'sumerian_news_settings',
-                'type'   => 'select',
-                'choices' => array(
-                    'default' => esc_html__('Default', 'sumerian'),
-                    'id' => esc_html__('ID', 'sumerian'),
-                    'author' => esc_html__('Author', 'sumerian'),
-                    'title' => esc_html__('Title', 'sumerian'),
-                    'date' => esc_html__('Date', 'sumerian'),
-                    'comment_count' => esc_html__('Comment Count', 'sumerian'),
-                    'menu_order' => esc_html__('Order by Page Order', 'sumerian'),
-                    'rand' => esc_html__('Random order', 'sumerian'),
-                )
-            )
-        );
-
-    $wp_customize->add_setting( 'sumerian_news_order',
-        array(
-            'sanitize_callback' => 'sumerian_sanitize_select',
-            'default'           => 'desc',
-        )
-    );
-
-    $wp_customize->add_control(
-        'sumerian_news_order',
-        array(
-            'label' 		=> esc_html__('Order', 'sumerian'),
-            'section' 		=> 'sumerian_news_settings',
-            'type'   => 'select',
-            'choices' => array(
-                'desc' => esc_html__('Descending', 'sumerian'),
-                'asc' => esc_html__('Ascending', 'sumerian'),
-            )
-        )
-    );
-
-		// Blog Button
-		$wp_customize->add_setting( 'sumerian_news_more_link',
-			array(
-				'sanitize_callback' => 'esc_url',
-				'default'           => '#',
-			)
-		);
-		$wp_customize->add_control( 'sumerian_news_more_link',
-			array(
-				'label'       => esc_html__('More News button link', 'sumerian'),
-				'section'     => 'sumerian_news_settings',
-				'description' => esc_html__(  'It should be your blog page link.', 'sumerian' )
-			)
-		);
-		$wp_customize->add_setting( 'sumerian_news_more_text',
-			array(
-				'sanitize_callback' => 'sanitize_text_field',
-				'default'           => esc_html__('Read Our Blog', 'sumerian'),
-			)
-		);
-		$wp_customize->add_control( 'sumerian_news_more_text',
-			array(
-				'label'     	=> esc_html__('More News Button Text', 'sumerian'),
-				'section' 		=> 'sumerian_news_settings',
-				'description'   => '',
-			)
-		);
 
 	/*------------------------------------------------------------------------*/
     /*  Section: Contact

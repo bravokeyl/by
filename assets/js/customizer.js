@@ -1299,26 +1299,26 @@ jQuery( window ).ready( function( $ ){
 
 
     /**
-     * For Gallery content settings
+     * For Clients content settings
      */
-    $( 'select[data-customize-setting-link="sumerian_gallery_source"]').on( 'change on_custom_load', function(){
+    $( 'select[data-customize-setting-link="sumerian_clients_source"]').on( 'change on_custom_load', function(){
         var v = $( this).val() || '';
 
-        $( "li[id^='customize-control-sumerian_gallery_source_']").hide();
-        $( "li[id^='customize-control-sumerian_gallery_api_']").hide();
-        $( "li[id^='customize-control-sumerian_gallery_settings_']").hide();
-        $( "li[id^='customize-control-sumerian_gallery_source_"+v+"']").show();
-        $( "li[id^='customize-control-sumerian_gallery_api_"+v+"']").show();
-        $( "li[id^='customize-control-sumerian_gallery_settings_"+v+"']").show();
+        $( "li[id^='customize-control-sumerian_clients_source_']").hide();
+        $( "li[id^='customize-control-sumerian_clients_api_']").hide();
+        $( "li[id^='customize-control-sumerian_clients_settings_']").hide();
+        $( "li[id^='customize-control-sumerian_clients_source_"+v+"']").show();
+        $( "li[id^='customize-control-sumerian_clients_api_"+v+"']").show();
+        $( "li[id^='customize-control-sumerian_clients_settings_"+v+"']").show();
 
     } );
 
-    $( 'select[data-customize-setting-link="sumerian_gallery_source"]').trigger( 'on_custom_load' );
+    $( 'select[data-customize-setting-link="sumerian_clients_source"]').trigger( 'on_custom_load' );
 
     /**
      * For Gallery display settings
      */
-    $( 'select[data-customize-setting-link="sumerian_gallery_display"]').on( 'change on_custom_load', function(){
+    $( 'select[data-customize-setting-link="sumerian_clients_display"]').on( 'change on_custom_load', function(){
         var v = $( this).val() || '';
         switch ( v ) {
             case 'slider':
@@ -1343,7 +1343,7 @@ jQuery( window ).ready( function( $ ){
         }
 
     } );
-    $( 'select[data-customize-setting-link="sumerian_gallery_display"]').trigger( 'on_custom_load' );
+    $( 'select[data-customize-setting-link="sumerian_clients_display"]').trigger( 'on_custom_load' );
 
 } );
 

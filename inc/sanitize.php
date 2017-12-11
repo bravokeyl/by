@@ -234,7 +234,7 @@ function sumerian_showon_frontpage() {
     return is_page_template( 'template-frontpage.php' );
 }
 
-function sumerian_gallery_source_validate( $validity, $value ){
+function sumerian_clients_source_validate( $validity, $value ){
     if ( ! class_exists( 'sumerian_Plus' ) ) {
         if ( $value != 'page' ) {
             $validity->add('notice', sprintf( esc_html__('Upgrade to %1s to unlock this feature.', 'sumerian' ), '<a target="_blank" href="https://www.famethemes.com/plugins/sumerian-plus/?utm_source=theme_customizer&utm_medium=text_link&utm_campaign=sumerian_customizer#gallery">sumerian Plus</a>' ) );

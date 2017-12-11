@@ -1097,7 +1097,7 @@ if ( ! function_exists( 'sumerian_get_section_gallery_data' ) ) {
     function sumerian_get_section_gallery_data()
     {
 
-        $source = 'page'; // get_theme_mod( 'sumerian_gallery_source' );
+        $source = 'page'; // get_theme_mod( 'sumerian_clients_source' );
         if( has_filter( 'sumerian_get_section_gallery_data' ) ) {
             $data =  apply_filters( 'sumerian_get_section_gallery_data', false );
             return $data;
@@ -1107,7 +1107,7 @@ if ( ! function_exists( 'sumerian_get_section_gallery_data' ) ) {
 
         switch ( $source ) {
             default:
-                $page_id = get_theme_mod( 'sumerian_gallery_source_page' );
+                $page_id = get_theme_mod( 'sumerian_clients_source_page' );
                 $images = '';
                 if ( $page_id ) {
                     $gallery = get_post_gallery( $page_id , false );
@@ -1116,14 +1116,14 @@ if ( ! function_exists( 'sumerian_get_section_gallery_data' ) ) {
                     }
                 }
 
-                $display_type = get_theme_mod( 'sumerian_gallery_display', 'grid' );
+                $display_type = get_theme_mod( 'sumerian_clients_display', 'grid' );
                 if ( $display_type == 'masonry' || $display_type == ' justified' ) {
                     $size = 'large';
                 } else {
                     $size = 'sumerian-small';
                 }
 
-                $image_thumb_size = apply_filters( 'sumerian_gallery_page_img_size', $size );
+                $image_thumb_size = apply_filters( 'sumerian_clients_page_img_size', $size );
 
                 if ( ! empty( $images ) ) {
                     $images = explode( ',', $images );
@@ -1169,7 +1169,7 @@ if ( ! function_exists( 'sumerian_get_section_gallery_data' ) ) {
  * @param bool|true $inner
  * @return string
  */
-function sumerian_gallery_html( $data, $inner = true, $size = 'thumbnail' ) {
+function sumerian_clients_html( $data, $inner = true, $size = 'thumbnail' ) {
     $max_item = get_theme_mod( 'sumerian_g_number', 10 );
     $html = '';
     if ( ! is_array( $data ) ) {
@@ -1213,12 +1213,12 @@ function sumerian_gallery_html( $data, $inner = true, $size = 'thumbnail' ) {
 }
 
 
-function sumerian_gallery_generate( $echo = true ){
+function sumerian_clients_generate( $echo = true ){
 
     $div = '';
 
     $data = sumerian_get_section_gallery_data();
-    $display_type = get_theme_mod( 'sumerian_gallery_display', 'grid' );
+    $display_type = get_theme_mod( 'sumerian_clients_display', 'grid' );
     $lightbox = get_theme_mod( 'sumerian_g_lightbox', 1 );
     $class = '';
     if ( $lightbox ) {
@@ -1230,7 +1230,7 @@ function sumerian_gallery_generate( $echo = true ){
     }
     switch( $display_type ) {
         case 'masonry':
-            $html = sumerian_gallery_html( $data );
+            $html = sumerian_clients_html( $data );
             if ( $html ) {
                 $div .= '<div data-col="'.$col.'" class="g-zoom-in gallery-masonry '.$class.' gallery-grid g-col-'.$col.'">';
                 $div .= $html;
@@ -1238,7 +1238,7 @@ function sumerian_gallery_generate( $echo = true ){
             }
             break;
         case 'carousel':
-            $html = sumerian_gallery_html( $data );
+            $html = sumerian_clients_html( $data );
             if ( $html ) {
                 $div .= '<div data-col="'.$col.'" class="g-zoom-in gallery-carousel owl-theme owl-carousel owl-carousel'.$class.'">';
                 $div .= $html;
@@ -1246,7 +1246,7 @@ function sumerian_gallery_generate( $echo = true ){
             }
             break;
         case 'slider':
-            $html = sumerian_gallery_html( $data , true , 'full' );
+            $html = sumerian_clients_html( $data , true , 'full' );
             if ( $html ) {
                 $div .= '<div class="gallery-slider owl-theme owl-carousel owl-carousel'.$class.'">';
                 $div .= $html;
@@ -1254,7 +1254,7 @@ function sumerian_gallery_generate( $echo = true ){
             }
             break;
         case 'justified':
-            $html = sumerian_gallery_html( $data, false );
+            $html = sumerian_clients_html( $data, false );
             if ( $html ) {
                 $gallery_spacing = absint( get_theme_mod( 'sumerian_g_spacing', 20 ) );
                 $row_height = absint( get_theme_mod( 'sumerian_g_row_height', 120 ) );
@@ -1264,7 +1264,7 @@ function sumerian_gallery_generate( $echo = true ){
             }
             break;
         default: // grid
-            $html = sumerian_gallery_html( $data );
+            $html = sumerian_clients_html( $data );
             if ( $html ) {
                 $div .= '<div class="gallery-grid g-zoom-in '.$class.' g-col-'.$col .'">';
                 $div .= $html;
