@@ -3227,6 +3227,37 @@ div.wpcf7-response-output {
   display: block;
 }
 
+/* Clients */
+.clients-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+.bk-clients-figure {
+  display: block;
+  color: #444;
+  float: left;
+  width: 100%;
+  text-align: center;
+  background: #fff;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+  padding: 40px 10px;
+  padding-right: 10px;
+  padding-left: 10px;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  margin-bottom: 1.5em;
+}
+.bk-clients-figure:hover {
+  -webkit-box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.15);
+  -ms-box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.15);
+  margin-top: -10px;
+}
 /*--------------------------------------------------------------
 9.0 External Plugins
 --------------------------------------------------------------*/

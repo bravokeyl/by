@@ -1923,208 +1923,51 @@ function sumerian_customize_register( $wp_customize ) {
 			'panel'       => 'sumerian_clients',
 		)
 	);
-	// Clients Source
-	$wp_customize->add_setting( 'sumerian_clients_source',
-		array(
-			'sanitize_callback' => 'sanitize_text_field',
-			'validate_callback' => 'sumerian_clients_source_validate',
-			'default'           => 'page',
-		)
-	);
-	$wp_customize->add_control( 'sumerian_clients_source',
-		array(
-			'label'     	=> esc_html__('Select Gallery Source', 'sumerian'),
-			'section' 		=> 'sumerian_clients_content',
-			'type'          => 'select',
-			'priority'      => 5,
-			'choices'       => array(
-				'page'      => esc_html__('Page', 'sumerian'),
-				'facebook'  => 'Facebook',
-				'instagram' => 'Instagram',
-				'flickr'    => 'Flickr',
+
+	// Features content
+	$wp_customize->add_setting(
+			'sumerian_clients_logos',
+			array(
+					//'default' => '',
+					'sanitize_callback' => 'sumerian_sanitize_repeatable_data_field',
+					'transport' => 'refresh', // refresh or postMessage
+			) );
+
+	$wp_customize->add_control(
+			new sumerian_Customize_Repeatable_Control(
+					$wp_customize,
+					'sumerian_clients_logos',
+					array(
+							'label' 		=> esc_html__('Features content', 'sumerian'),
+							'description'   => '',
+							'section'       => 'sumerian_clients_content',
+							'live_title_id' => 'title', // apply for unput text and textarea only
+							'title_format'  => esc_html__('[live_title]', 'sumerian'), // [live_title]
+							'max_item'      => 20, // Maximum item can add
+							'limited_msg' 	=> wp_kses_post( __( 'Hola!', 'sumerian' ) ),
+							'fields'    => array(
+								'title1'  => array(
+										'title' => esc_html__('Title', 'sumerian'),
+										'type'  =>'text',
+								),
+								'logo1'  => array(
+									'title' => esc_html__('Logo 1', 'sumerian'),
+									'type'  =>'media',
+									'required' => array( 'icon_type', '=', 'image' ),
+								),
+								'title2'  => array(
+										'title' => esc_html__('Title', 'sumerian'),
+										'type'  =>'text',
+								),
+								'logo2'  => array(
+									'title' => esc_html__('Logo 2', 'sumerian'),
+									'type'  =>'media',
+									'required' => array( 'icon_type', '=', 'image' ),
+								),
+							),
+					)
 			)
-		)
 	);
-
-	// Source page settings
-	$wp_customize->add_setting( 'sumerian_clients_source_page',
-		array(
-			'sanitize_callback' => 'sumerian_sanitize_number',
-			'default'           => '',
-		)
-	);
-	$wp_customize->add_control( 'sumerian_clients_source_page',
-		array(
-			'label'     	=> esc_html__('Select Clients Page', 'sumerian'),
-			'section' 		=> 'sumerian_clients_content',
-			'type'          => 'select',
-			'priority'      => 10,
-			'choices'       => $option_pages,
-			'description'   => esc_html__('Select a page which have content contain [gallery] shortcode.', 'sumerian'),
-		)
-	);
-
-
-	// Clients Layout
-	$wp_customize->add_setting( 'sumerian_clients_layout',
-		array(
-			'sanitize_callback' => 'sanitize_text_field',
-			'default'           => 'default',
-		)
-	);
-	$wp_customize->add_control( 'sumerian_clients_layout',
-		array(
-			'label'     	=> esc_html__('Layout', 'sumerian'),
-			'section' 		=> 'sumerian_clients_content',
-			'type'          => 'select',
-			'priority'      => 40,
-			'choices'       => array(
-				'default'      => esc_html__('Default, inside container', 'sumerian'),
-				'full-width'  => esc_html__('Full Width', 'sumerian'),
-			)
-		)
-	);
-
-	// Gallery Display
-	$wp_customize->add_setting( 'sumerian_clients_display',
-		array(
-			'sanitize_callback' => 'sanitize_text_field',
-			'default'           => 'default',
-		)
-	);
-	$wp_customize->add_control( 'sumerian_clients_display',
-		array(
-			'label'     	=> esc_html__('Display', 'sumerian'),
-			'section' 		=> 'sumerian_clients_content',
-			'type'          => 'select',
-			'priority'      => 50,
-			'choices'       => array(
-				'grid'      => esc_html__('Grid', 'sumerian'),
-				'carousel'    => esc_html__('Carousel', 'sumerian'),
-				'slider'      => esc_html__('Slider', 'sumerian'),
-				'justified'   => esc_html__('Justified', 'sumerian'),
-				'masonry'     => esc_html__('Masonry', 'sumerian'),
-			)
-		)
-	);
-
-	// Gallery grid spacing
-	$wp_customize->add_setting( 'sumerian_g_spacing',
-		array(
-			'sanitize_callback' => 'sanitize_text_field',
-			'default'           => 20,
-		)
-	);
-	$wp_customize->add_control( 'sumerian_g_spacing',
-		array(
-			'label'     	=> esc_html__('Item Spacing', 'sumerian'),
-			'section' 		=> 'sumerian_clients_content',
-			'priority'      => 55,
-
-		)
-	);
-
-	// Gallery grid spacing
-	$wp_customize->add_setting( 'sumerian_g_row_height',
-		array(
-			'sanitize_callback' => 'sanitize_text_field',
-			'default'           => 120,
-		)
-	);
-	$wp_customize->add_control( 'sumerian_g_row_height',
-		array(
-			'label'     	=> esc_html__('Row Height', 'sumerian'),
-			'section' 		=> 'sumerian_clients_content',
-			'priority'      => 57,
-
-		)
-	);
-
-	// Gallery grid gird col
-	$wp_customize->add_setting( 'sumerian_g_col',
-		array(
-			'sanitize_callback' => 'sanitize_text_field',
-			'default'           => '4',
-		)
-	);
-	$wp_customize->add_control( 'sumerian_g_col',
-		array(
-			'label'     	=> esc_html__('Layout columns', 'sumerian'),
-			'section' 		=> 'sumerian_clients_content',
-			'priority'      => 60,
-			'type'          => 'select',
-			'choices'       => array(
-				'1'      => 1,
-				'2'      => 2,
-				'3'      => 3,
-				'4'      => 4,
-				'5'      => 5,
-				'6'      => 6,
-			)
-
-		)
-	);
-
-	// Gallery max number
-	$wp_customize->add_setting( 'sumerian_g_number',
-		array(
-			'sanitize_callback' => 'sanitize_text_field',
-			'default'           => 10,
-		)
-	);
-	$wp_customize->add_control( 'sumerian_g_number',
-		array(
-			'label'     	=> esc_html__('Number items', 'sumerian'),
-			'section' 		=> 'sumerian_clients_content',
-			'priority'      => 65,
-		)
-	);
-	// Gallery grid spacing
-	$wp_customize->add_setting( 'sumerian_g_lightbox',
-		array(
-			'sanitize_callback' => 'sumerian_sanitize_checkbox',
-			'default'           => 1,
-		)
-	);
-	$wp_customize->add_control( 'sumerian_g_lightbox',
-		array(
-			'label'     	=> esc_html__('Enable Lightbox', 'sumerian'),
-			'section' 		=> 'sumerian_clients_content',
-			'priority'      => 70,
-			'type'          => 'checkbox',
-		)
-	);
-
-    // Gallery readmore link
-    $wp_customize->add_setting( 'sumerian_g_readmore_link',
-        array(
-            'sanitize_callback' => 'sanitize_text_field',
-            'default'           => '',
-        )
-    );
-    $wp_customize->add_control( 'sumerian_g_readmore_link',
-        array(
-            'label'     	=> esc_html__('Read More Link', 'sumerian'),
-            'section' 		=> 'sumerian_clients_content',
-            'priority'      => 90,
-            'type'          => 'text',
-        )
-    );
-
-    $wp_customize->add_setting( 'sumerian_g_readmore_text',
-        array(
-            'sanitize_callback' => 'sanitize_text_field',
-            'default'           => esc_html__('View More', 'sumerian'),
-        )
-    );
-    $wp_customize->add_control( 'sumerian_g_readmore_text',
-        array(
-            'label'     	=> esc_html__('Read More Text', 'sumerian'),
-            'section' 		=> 'sumerian_clients_content',
-            'priority'      => 100,
-            'type'          => 'text',
-        )
-    );
 
 		/*------------------------------------------------------------------------*/
 		/*  Section: Career
